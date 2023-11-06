@@ -1,6 +1,9 @@
 package exercise2;
 
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +14,9 @@ public class Main {
         Worker third = new Worker();
         Worker fourth = new Worker();
         Worker fifth = new Worker();
-        
+
+        int date = LocalDate.now().getYear();
+
         for (int i = 0; i < 5; i++) {
 
             System.out.println("Enter the name:");
@@ -23,11 +28,10 @@ public class Main {
             System.out.println("Enter the yearOfEmployment:");
             Scanner year = new Scanner(System.in);
             int yearOfEmployment = year.nextInt();
-
-            Exception ex = new Exception();
-            if (yearOfEmployment > 2023 || yearOfEmployment < 1923) {
+            
+            if (yearOfEmployment > date || yearOfEmployment < 1970) {
                 try {
-                    throw ex;
+                    throw new Exception();
                 } catch (Exception e) {
                     System.out.println("Invalid year format");
                 }
@@ -72,7 +76,7 @@ public class Main {
         int year = y.nextInt();
 
         for (int i = 0; i < workers.length; i++) {
-            if ((2023 - workers[i].getYearOfEmployment()) >= year) {
+            if ((date - workers[i].getYearOfEmployment()) >= year) {
                 String a =  workers[i].getName();
                 System.out.println(a);
             }

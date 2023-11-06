@@ -43,8 +43,6 @@ public class Main {
         Scanner sn = new Scanner(System.in);
         String shopName = sn.next();
 
-        Exception ex = new Exception();
-
         if (shopName.equals(first.shop) && shopName.equals(second.shop)) {
             System.out.println(Arrays.toString(prices));
         } else if (shopName.equals(first.shop)) {
@@ -52,7 +50,7 @@ public class Main {
         } else if (shopName.equals(second.shop)) {
             System.out.println(second.toString());
         } else try {
-            throw ex;
+            throw new Exception();
         } catch (Exception e) {
             System.out.println("No shop what sells it!");
         }

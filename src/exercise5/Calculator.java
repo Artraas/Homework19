@@ -18,10 +18,9 @@ public class Calculator {
         return a * b;
     }
     double div(double a, double b){
-        Exception ex = new Exception();
         if (b == 0){
             try {
-                throw ex;
+                throw new ArithmeticException();
             }catch (Exception e){
                 System.out.println("Divaided by null");
                 System.out.println(e.getMessage());
